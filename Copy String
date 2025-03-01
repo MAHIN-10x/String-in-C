@@ -1,0 +1,27 @@
+Copy String
+````````````
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str1[] = "Hello";
+    char str2[] = "World";
+    printf("Length of str1: %d\n", strlen(str1));
+    printf("Lowercase str1: %s\n", strlwr(str1));
+    printf("Uppercase str1: %s\n", strupr(str1));
+    printf("str1+str2: %s\n", strcat(str1,str2));
+    printf("str1+str2: %s\n", strncat(str1,str2,3));
+    printf("%s\n", strrev(str1));
+    printf("%s\n",str1);
+    printf("%s\n", strcpy(str1,str2));
+    printf("%s\n", strncpy(str1,str2,3));
+    printf("%d\n", strcmp(str1,str2));
+    printf("%d\n", strncmp(str1,str2,3));
+    printf("%d\n", strcmpi(str1,str2));
+    printf("%d\n", strncmpi(str1,str2,3));
+    printf("%s\n", strchr(str1,'l'));
+    printf("%s\n", strrchr(str1,'l'));
+    printf("%s\n", strset(str1,'l'));
+    printf("%s\n", strnset(str1,'l',3));
+    return 0;
+}
