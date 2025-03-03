@@ -1,0 +1,38 @@
+//Capitalizing the First and Last Letter of Each Word
+``````````````````````````````````````````````````````
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+void capitalizeFirstLast(char str[]) {
+    int length = strlen(str);
+    int inWord = 0, start = 0;
+
+    for (int i = 0; i <= length; i++) {
+        if (isalpha(str[i])) {
+            if (!inWord) {
+                str[i] = toupper(str[i]);
+                inWord = 1;
+                start = i;
+            }
+        } else {
+            if (inWord) {
+                str[i - 1] = toupper(str[i - 1]);
+                inWord = 0;
+            }
+        }
+    }
+}
+
+int main() {
+    char input_string[100];
+    printf("Enter a string: ");
+    fgets(input_string, sizeof(input_string), stdin);
+    input_string[strcspn(input_string, "\n")] = '\0'; // Remove newline character
+
+    capitalizeFirstLast(input_string);
+    printf("Capitalized String: %s\n", input_string);
+
+    return 0;
+}
+
