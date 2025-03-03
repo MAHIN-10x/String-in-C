@@ -1,0 +1,28 @@
+//Capitalize the first letter of each word in a string
+```````````````````````````````````````````````````````
+#include <stdio.h>
+#include <ctype.h>
+
+void capitalizeFirstLetter(char str[]) {
+    int inWord = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!inWord && isalpha(str[i])) {
+            str[i] = toupper(str[i]);
+            inWord = 1;
+        } else if (isspace(str[i])) {
+            inWord = 0;
+        }
+    }
+}
+
+int main() {
+    char input_string[100];
+    printf("Enter a string: ");
+    fgets(input_string, sizeof(input_string), stdin);
+
+    capitalizeFirstLetter(input_string);
+    printf("Capitalized String: %s", input_string);
+
+    return 0;
+}
