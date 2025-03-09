@@ -1,0 +1,36 @@
+//Capitalize the last letter of each word in a string
+``````````````````````````````````````````````````````
+#include <stdio.h>
+#include <ctype.h>
+
+void capitalizeLastLetters(char str[]) {
+    int i = 0;
+
+    while (str[i] != '\0') {
+        // Check if the current character is a space or newline (end of a word)
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {
+            if (i > 0 && !isspace(str[i - 1])) {
+                str[i - 1] = toupper(str[i - 1]); // Capitalize the character before the space
+            }
+        }
+        i++;
+    }
+
+    // Ensure the last character of the string is capitalized (if it's part of a word)
+    if (i > 0 && !isspace(str[i - 1])) {
+        str[i - 1] = toupper(str[i - 1]);
+    }
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin); // Safely read the string
+
+    capitalizeLastLetters(str);
+
+    printf("String after capitalizing last letters: %s", str);
+
+    return 0;
+}
